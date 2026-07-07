@@ -3,7 +3,7 @@ const readline = require("readline-sync");
 const scraper = require("../services/scraperService");
 const discovery = require("../services/discoveryService");
 const crawler = require("../services/crawlerEngine");
-const stats = require("../services/statService");
+const statService  = require("../services/statService");
 const queue = require("../services/queueService");
 const db = require("../database/db");
 
@@ -37,9 +37,9 @@ async function resume(){
 
 async function stats(){
 
-    const data = await stats.getStats();
+    const data = await statService .getStats();
 
-    stats.printStats(data);
+    statService .printStats(data);
 
 }
 
