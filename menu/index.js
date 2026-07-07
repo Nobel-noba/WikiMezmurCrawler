@@ -20,6 +20,8 @@ async function startMenu() {
         console.log("6. Clear Queue");
         console.log("7. Clear Songs");
         console.log("8. Exit");
+        console.log("9. Import to Laravel Music App");
+        
 
         console.log("");
 
@@ -57,7 +59,9 @@ async function startMenu() {
 
             case "8":
                 process.exit();
-
+            case "9":
+                await actions.importToLaravel();
+                break;
             default:
                 console.log("Invalid option.");
         }

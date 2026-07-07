@@ -6,6 +6,7 @@ const crawler = require("../services/crawlerEngine");
 const statService  = require("../services/statService");
 const queue = require("../services/queueService");
 const db = require("../database/db");
+const importer = require("../services/importService");
 
 async function singleSong(){
 
@@ -32,6 +33,12 @@ async function resume(){
     await queue.retryFailed();
 
     console.log("Failed jobs moved back to pending.");
+
+}
+
+async function importToLaravel(){
+
+    await importer.importSongs();
 
 }
 
@@ -81,6 +88,7 @@ module.exports = {
     resume,
     stats,
     clearQueue,
-    clearSongs
+    clearSongs,
+    importToLaravel
 
 };
